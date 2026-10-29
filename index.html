@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="2026년 10월 24일(토) 수성대학교 · 책자와 현장 사진·영상을 책처럼 넘겨 보세요.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2026 청구중·고등학교 총동창회 체육대회">
+<meta property="og:description" content="체육대회 책자와 현장 스케치를 책처럼 넘겨 보세요.">
+<meta property="og:image" content="https://YOURID.github.io/cheonggu2026/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://YOURID.github.io/cheonggu2026/">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>2026 청구 총동창회 체육대회</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* Layout: full-height reading room — slim title bar, the book centered, a control bar below. Single deliberate dark look (school navy). */
+:root {
+  --bg: #0f1a2e;
+  --bg-2: #16253f;
+  --fg: #e8edf6;
+  --muted: #93a3bf;
+  --accent: #5fa8ff;
+  --line: rgba(255,255,255,.12);
+  --sans: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  background: radial-gradient(ellipse at 50% 40%, var(--bg-2), var(--bg) 70%);
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  overflow: hidden;
+}
+.app {
+  height: 100%;
+  display: flex; flex-direction: column;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  box-sizing: border-box;
+}
+header {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding-block: 12px 8px;
+}
+header h1 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -.01em; text-wrap: balance; }
+header span { font-size: 14px; color: var(--muted); white-space: nowrap; }
+.stage { flex: 1; min-height: 0; position: relative; display: flex; align-items: center; justify-content: center; padding-block: 4px; }
+#book { width: 100%; height: 100%; touch-action: none; -webkit-user-select: none; user-select: none; }
+.page { background: #fff; overflow: hidden; }
+.page img { width: 100%; height: 100%; object-fit: contain; display: block; user-select: none; -webkit-user-drag: none; }
+.page.blank { background: #fff; }
+.page { position: relative; }
+.page .vbtn { position: absolute; height: auto; min-width: 0; padding: 0; border: 0; border-radius: 4px; background: transparent; cursor: pointer; }
+.page .vbtn:hover { background: rgba(255,255,255,.12); }
+/* 쪽 안 영상 */
+.page .pvid { position: absolute; object-fit: contain; background: #000; visibility: hidden; pointer-events: none; }
+.page .pvid.on { visibility: visible; }
+.page .vbtn .snd { display: none !important; pointer-events: none; position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); white-space: nowrap; font-size: 13px; color: #fff; background: rgba(10,20,40,.78); padding: 6px 12px; border-radius: 999px; }
+#vmodal { position: fixed; inset: 0; z-index: 50; background: rgba(5,10,20,.92); display: flex; align-items: center; justify-content: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); box-sizing: border-box; }
+#vmodal[hidden] { display: none !important; }
+#vmodal video { max-width: 100%; max-height: calc(100% - 56px); border-radius: 8px; background: #000; }
+.vwrap { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; height: 100%; justify-content: center; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-size: 13px; }
+
+.bar {
+  position: relative; z-index: 20;
+  display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+  padding-block: 10px max(12px, env(safe-area-inset-bottom, 0px));
+}
+button {
+  font: inherit; color: var(--fg); background: rgba(255,255,255,.06);
+  border: 1px solid var(--line); border-radius: 8px;
+  height: 38px; min-width: 42px; padding: 0 12px; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 15px;
+}
+button:hover, a.btn:hover { background: rgba(255,255,255,.12); }
+a.btn { color: var(--fg); text-decoration: none; background: rgba(255,255,255,.06); border: 1px solid var(--line); border-radius: 8px; height: 38px; padding: 0 12px; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; box-sizing: border-box; }
+a.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.on { background: var(--accent); border-color: var(--accent); color: #0b1424; font-weight: 700; }
+select { font: inherit; font-size: 14px; color: var(--fg); background: var(--bg-2); border: 1px solid var(--line); border-radius: 8px; height: 38px; padding: 0 8px; }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button:disabled { opacity: .35; cursor: default; }
+.pager { display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pager input {
+  width: 56px; height: 36px; text-align: center; font: inherit; color: var(--fg);
+  background: rgba(255,255,255,.06); border: 1px solid var(--line); border-radius: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.hint { font-size: 13px; color: var(--muted); width: 100%; text-align: center; }
+@media (max-width: 480px) {
+  .hint, header span { display: none; }
+  #fsBtn span, #autoBtn span, #musicBtn span, #photoBtn span { display: none; }
+  .bar { gap: 6px; }
+  button { min-width: 36px; padding: 0 8px; }
+  .pager input { width: 48px; }
+}
+</style>
+</head>
+<body>
+
+
+<div class="app">
+  <header>
+    <h1>2026 청구중·고등학교 총동창회 체육대회</h1>
+    <span>10월 24일(토) · 수성대학교</span>
+  </header>
+  <div class="stage">
+    <div class="loading" id="loading">책을 펼치는 중…</div>
+    <div id="book"></div>
+  </div>
+  <div class="bar">
+    <button id="firstBtn" aria-label="처음으로">⇤</button>
+    <button id="prevBtn" aria-label="이전 페이지">◀</button>
+    <label class="pager" for="pageInput">
+      <input id="pageInput" type="number" inputmode="numeric" min="1" max="284" value="1" aria-label="페이지 번호">
+      <span>/ <b id="total">284</b></span>
+    </label>
+    <button id="nextBtn" aria-label="다음 페이지">▶</button>
+    <button id="lastBtn" aria-label="마지막으로">⇥</button>
+    <button id="autoBtn" aria-label="자동 넘김">▶▶ <span>자동넘김</span></button>
+    <select id="speedSel" aria-label="넘김 간격">
+      <option value="3000" selected>3초</option>
+      <option value="5000">5초</option>
+      <option value="8000">8초</option>
+      <option value="12000">12초</option>
+    </select>
+    <button id="photoBtn" aria-label="현장 스케치 차례로 이동">📷 <span>현장</span></button>
+    <button id="musicBtn" aria-label="배경음악">♪ <span>음악</span></button>
+    <button id="fsBtn" aria-label="전체 화면">⛶ <span>전체화면</span></button>
+    <div class="hint">페이지 모서리를 끌거나 좌우를 탭하세요 · 키보드 ← → 사용 가능</div>
+  </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script>
+(function () {
+  // 쪽 순서: 표지 → '그때 그 청춘' → 하이라이트 → 현장 스케치 → 책자 4~18쪽 → 동문 광고 시작 → 풍국면 → 삼성내과(19쪽)~180쪽
+  const PAGES = ["p-001.jpg", "p-003.jpg", "s-hl.jpg", "s-cover.jpg", "s-toc.jpg", "s-001.jpg", "s-002.jpg", "s-003.jpg", "s-004.jpg", "s-005.jpg", "s-006.jpg", "s-007.jpg", "s-008.jpg", "s-009.jpg", "s-010.jpg", "s-011.jpg", "s-012.jpg", "s-013.jpg", "s-014.jpg", "s-015.jpg", "s-016.jpg", "s-017.jpg", "s-018.jpg", "s-019.jpg", "s-020.jpg", "s-021.jpg", "s-022.jpg", "s-023.jpg", "s-024.jpg", "s-025.jpg", "s-026.jpg", "s-027.jpg", "s-028.jpg", "s-029.jpg", "s-030.jpg", "s-031.jpg", "s-032.jpg", "s-033.jpg", "s-034.jpg", "s-035.jpg", "s-036.jpg", "s-037.jpg", "s-038.jpg", "s-039.jpg", "s-040.jpg", "s-041.jpg", "s-042.jpg", "s-043.jpg", "s-044.jpg", "s-045.jpg", "s-046.jpg", "s-047.jpg", "s-048.jpg", "s-049.jpg", "s-050.jpg", "s-051.jpg", "s-052.jpg", "s-053.jpg", "s-054.jpg", "s-055.jpg", "s-056.jpg", "s-057.jpg", "s-058.jpg", "s-059.jpg", "s-060.jpg", "s-061.jpg", "s-062.jpg", "s-063.jpg", "s-064.jpg", "s-065.jpg", "s-066.jpg", "s-067.jpg", "s-068.jpg", "s-069.jpg", "s-070.jpg", "s-071.jpg", "s-072.jpg", "s-073.jpg", "s-074.jpg", "s-075.jpg", "s-076.jpg", "s-077.jpg", "s-078.jpg", "s-079.jpg", "s-080.jpg", "s-081.jpg", "s-082.jpg", "s-083.jpg", "s-084.jpg", "s-085.jpg", "s-086.jpg", "s-087.jpg", "s-088.jpg", "s-089.jpg", "s-090.jpg", "s-091.jpg", "s-092.jpg", "s-093.jpg", "s-094.jpg", "s-095.jpg", "s-096.jpg", "s-097.jpg", "s-098.jpg", "s-099.jpg", "s-100.jpg", "p-004.jpg", "p-005.jpg", "p-006.jpg", "p-007.jpg", "p-008.jpg", "p-009.jpg", "p-010.jpg", "p-011.jpg", "p-012.jpg", "p-013.jpg", "p-014.jpg", "p-015.jpg", "p-016.jpg", "p-017.jpg", "p-018.jpg", "s-ad.jpg", "p-002.jpg", "p-019.jpg", "p-020.jpg", "p-021.jpg", "p-022.jpg", "p-023.jpg", "p-024.jpg", "p-025.jpg", "p-026.jpg", "p-027.jpg", "p-028.jpg", "p-029.jpg", "p-030.jpg", "p-031.jpg", "p-032.jpg", "p-033.jpg", "p-034.jpg", "p-035.jpg", "p-036.jpg", "p-037.jpg", "p-038.jpg", "p-039.jpg", "p-040.jpg", "p-041.jpg", "p-042.jpg", "p-043.jpg", "p-044.jpg", "p-045.jpg", "p-046.jpg", "p-047.jpg", "p-048.jpg", "p-049.jpg", "p-050.jpg", "p-051.jpg", "p-052.jpg", "p-053.jpg", "p-054.jpg", "p-055.jpg", "p-056.jpg", "p-057.jpg", "p-058.jpg", "p-059.jpg", "p-060.jpg", "p-061.jpg", "p-062.jpg", "p-063.jpg", "p-064.jpg", "p-065.jpg", "p-066.jpg", "p-067.jpg", "p-068.jpg", "p-069.jpg", "p-070.jpg", "p-071.jpg", "p-072.jpg", "p-073.jpg", "p-074.jpg", "p-075.jpg", "p-076.jpg", "p-077.jpg", "p-078.jpg", "p-079.jpg", "p-080.jpg", "p-081.jpg", "p-082.jpg", "p-083.jpg", "p-084.jpg", "p-085.jpg", "p-086.jpg", "p-087.jpg", "p-088.jpg", "p-089.jpg", "p-090.jpg", "p-091.jpg", "p-092.jpg", "p-093.jpg", "p-094.jpg", "p-095.jpg", "p-096.jpg", "p-097.jpg", "p-098.jpg", "p-099.jpg", "p-100.jpg", "p-101.jpg", "p-102.jpg", "p-103.jpg", "p-104.jpg", "p-105.jpg", "p-106.jpg", "p-107.jpg", "p-108.jpg", "p-109.jpg", "p-110.jpg", "p-111.jpg", "p-112.jpg", "p-113.jpg", "p-114.jpg", "p-115.jpg", "p-116.jpg", "p-117.jpg", "p-118.jpg", "p-119.jpg", "p-120.jpg", "p-121.jpg", "p-122.jpg", "p-123.jpg", "p-124.jpg", "p-125.jpg", "p-126.jpg", "p-127.jpg", "p-128.jpg", "p-129.jpg", "p-130.jpg", "p-131.jpg", "p-132.jpg", "p-133.jpg", "p-134.jpg", "p-135.jpg", "p-136.jpg", "p-137.jpg", "p-138.jpg", "p-139.jpg", "p-140.jpg", "p-141.jpg", "p-142.jpg", "p-143.jpg", "p-144.jpg", "p-145.jpg", "p-146.jpg", "p-147.jpg", "p-148.jpg", "p-149.jpg", "p-150.jpg", "p-151.jpg", "p-152.jpg", "p-153.jpg", "p-154.jpg", "p-155.jpg", "p-156.jpg", "p-157.jpg", "p-158.jpg", "p-159.jpg", "p-160.jpg", "p-161.jpg", "p-162.jpg", "p-163.jpg", "p-164.jpg", "p-165.jpg", "p-166.jpg", "p-167.jpg", "p-168.jpg", "p-169.jpg", "p-170.jpg", "p-171.jpg", "p-172.jpg", "p-173.jpg", "p-174.jpg", "p-175.jpg", "p-176.jpg", "p-177.jpg", "p-178.jpg", "p-179.jpg", "p-180.jpg"];
+  // 쪽 위의 누르는 영역: t='av' 쪽을 펼치면 자동 재생되는 영상, t='g' 해당 쪽으로 이동
+  const HOT = {"s-024.jpg": [{"t": "av", "src": "v2/m17.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-025.jpg": [{"t": "av", "src": "v2/m09.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-026.jpg": [{"t": "av", "src": "v2/m12.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-027.jpg": [{"t": "av", "src": "v2/m15.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-028.jpg": [{"t": "av", "src": "v2/m20.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-032.jpg": [{"t": "av", "src": "v2/m11.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-033.jpg": [{"t": "av", "src": "v2/m04.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-034.jpg": [{"t": "av", "src": "v2/m05.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-035.jpg": [{"t": "av", "src": "v2/m06.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-036.jpg": [{"t": "av", "src": "v2/m07.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-037.jpg": [{"t": "av", "src": "v2/m08.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-064.jpg": [{"t": "av", "src": "v2/m00.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-065.jpg": [{"t": "av", "src": "v2/m18.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-076.jpg": [{"t": "av", "src": "v2/m02.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-095.jpg": [{"t": "av", "src": "v2/m03.mp4", "x": 0, "y": 0, "w": 1, "h": 1}], "s-toc.jpg": [{"t": "g", "to": 5, "x": 0.05183585313174946, "y": 0.20684168655529037, "w": 0.896328293736501, "h": 0.061256961018297536}, {"t": "g", "to": 7, "x": 0.05183585313174946, "y": 0.2728719172633254, "w": 0.896328293736501, "h": 0.061256961018297536}, {"t": "g", "to": 10, "x": 0.05183585313174946, "y": 0.33890214797136037, "w": 0.896328293736501, "h": 0.061256961018297536}, {"t": "g", "to": 25, "x": 0.05183585313174946, "y": 0.4049323786793954, "w": 0.896328293736501, "h": 0.061256961018297536}, {"t": "g", "to": 33, "x": 0.05183585313174946, "y": 0.4709626093874304, "w": 0.896328293736501, "h": 0.061256961018297536}, {"t": "g", "to": 42, "x": 0.05183585313174946, "y": 0.5369928400954654, "w": 0.896328293736501, "h": 0.061256961018297536}, {"t": "g", "to": 50, "x": 0.05183585313174946, "y": 0.6030230708035004, "w": 0.896328293736501, "h": 0.061256961018297536}, {"t": "g", "to": 58, "x": 0.05183585313174946, "y": 0.6690533015115354, "w": 0.896328293736501, "h": 0.061256961018297536}, {"t": "g", "to": 70, "x": 0.05183585313174946, "y": 0.7350835322195705, "w": 0.896328293736501, "h": 0.061256961018297536}, {"t": "g", "to": 81, "x": 0.05183585313174946, "y": 0.8011137629276054, "w": 0.896328293736501, "h": 0.061256961018297536}, {"t": "g", "to": 100, "x": 0.05183585313174946, "y": 0.8671439936356404, "w": 0.896328293736501, "h": 0.061256961018297536}], "s-hl.jpg": [{"t": "av", "src": "v2/hl1.mp4", "next": ["v2/hl2.mp4", "v2/hl3.mp4", "v2/hl4.mp4"], "x": 0, "y": 0, "w": 1, "h": 1}]};
+  const TOTAL = PAGES.length;
+  const PV = {};   // 쪽 번호 → 쪽 안의 영상
+  const HLIDX = PAGES.indexOf('s-hl.jpg');   // 하이라이트 영상 쪽
+  const book = document.getElementById('book');
+  const src = i => 'p/' + PAGES[i];
+
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.createElement('div');
+    d.className = 'page';
+    d.dataset.density = (i === 0 || i === TOTAL - 1) ? 'hard' : 'soft';
+    const img = document.createElement('img');
+    img.alt = (i + 1) + '쪽';
+    img.dataset.src = src(i);
+    img.decoding = 'async';
+    d.appendChild(img);
+    (HOT[PAGES[i]] || []).forEach((v, k) => {
+      const pos = el => { el.style.left = v.x * 100 + '%'; el.style.top = v.y * 100 + '%'; el.style.width = v.w * 100 + '%'; el.style.height = v.h * 100 + '%'; };
+      const b = document.createElement('button');
+      b.className = 'vbtn'; pos(b);
+      if (v.t === 'av') {
+        const vid = document.createElement('video');
+        vid.className = 'pvid'; vid.playsInline = true; vid.preload = 'none'; vid.dataset.src = v.src; pos(vid);
+        if (v.next) vid.dataset.parts = JSON.stringify([v.src].concat(v.next));
+        const snd = document.createElement('span');
+        snd.className = 'snd'; snd.textContent = '🔇 눌러서 소리 켜기'; snd.hidden = true;
+        b.appendChild(snd);
+        b.dataset.pv = i; b.setAttribute('aria-label', '영상 재생·일시정지');
+        d.appendChild(vid);
+        PV[i] = { v: vid, b: b, snd: snd };
+      } else { b.dataset.goto = v.to; b.setAttribute('aria-label', (v.to + 1) + '쪽으로 이동'); }
+      d.appendChild(b);
+    });
+    book.appendChild(d);
+  }
+  const imgs = book.querySelectorAll('img');
+
+  function loadAround(idx) {
+    const from = Math.max(0, idx - 4), to = Math.min(TOTAL - 1, idx + 7);
+    for (let i = from; i <= to; i++) {
+      const im = imgs[i];
+      if (im.dataset.src) { im.src = im.dataset.src; delete im.dataset.src; }
+    }
+  }
+  loadAround(0);
+
+  const pf = new St.PageFlip(book, {
+    width: 556, height: 754,
+    size: 'stretch',
+    minWidth: 280, maxWidth: 1400,
+    minHeight: 380, maxHeight: 1900,
+    showCover: true,
+    usePortrait: true,
+    maxShadowOpacity: 0.45,
+    mobileScrollSupport: false,
+    useMouseEvents: false,   // 넘김 동작은 아래에서 직접 처리
+    showPageCorners: false,
+    flippingTime: 700
+  });
+  pf.loadFromHTML(book.querySelectorAll('.page'));
+  document.getElementById('loading').hidden = true;
+
+  const input = document.getElementById('pageInput');
+  const btn = id => document.getElementById(id);
+  function sync() {
+    const i = pf.getCurrentPageIndex();
+    input.value = i + 1;
+    loadAround(i);
+    btn('prevBtn').disabled = btn('firstBtn').disabled = i <= 0;
+    btn('nextBtn').disabled = btn('lastBtn').disabled = i >= TOTAL - 1;
+    try { localStorage.setItem('cheonggu-page', i); } catch (e) {}
+    setTimeout(() => { try { updateVideos(); } catch (e) {} }, 60);   // 쪽 번호로 이동해도 영상·음악 전환
+  }
+  pf.on('flip', sync);
+  pf.on('changeOrientation', sync);
+  pf.on('changeState', e => { if (e.data === 'flipping' || e.data === 'user_fold') loadAround(pf.getCurrentPageIndex()); });
+
+  btn('prevBtn').onclick = () => pf.flipPrev();
+  btn('nextBtn').onclick = () => pf.flipNext();
+  btn('firstBtn').onclick = () => { loadAround(0); pf.turnToPage(0); sync(); };
+  btn('lastBtn').onclick = () => { loadAround(TOTAL - 1); pf.turnToPage(TOTAL - 1); sync(); };
+  input.addEventListener('change', () => {
+    let n = Math.min(TOTAL, Math.max(1, parseInt(input.value, 10) || 1)) - 1;
+    loadAround(n); pf.turnToPage(n); sync();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.target === input) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); pf.flipNext(); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); pf.flipPrev(); }
+    if (e.key === ' ') { e.preventDefault(); toggleAuto(); }
+  });
+  // 자동 넘김: 끝에 닿으면 표지로 돌아가 계속 반복
+  let timer = null;
+  const speedSel = btn('speedSel');
+  function tick(force) {
+    if (pf.getState() !== 'read') return;   // 손으로 넘기는 중이면 건드리지 않음
+    // 짧은 현장 영상은 끝날 때까지 기다리고, 긴 하이라이트 영상은 기다리지 않음
+    // 하이라이트 영상 쪽에서는 자동넘김을 멈추고 손으로 넘길 때까지 기다림
+    if (visibleIdx().includes(HLIDX)) return;
+    // 짧은 현장 영상은 끝날 때까지 기다림
+    if (!force && cur && !cur.v.paused && !cur.v.ended) return;
+    if (pf.getCurrentPageIndex() >= TOTAL - 1) { loadAround(0); pf.turnToPage(0); sync(); }
+    else pf.flipNext();
+  }
+  // 배경음악: 잔잔한 발라드(자체 작곡), Web Audio로 합성
+  const March = (() => {
+    let ctx = null, master = null, wet = null, loopTimer = null, playing = false;
+    const BPM = 72, B = 60 / BPM, R = null;
+    // 마디별 화음 { 베이스, 화음 구성음 }
+    const CH = {
+      C: [36, [60, 64, 67]], GB: [35, [59, 62, 67]], Am: [33, [57, 60, 64]], F: [41, [57, 60, 65]],
+      G: [43, [59, 62, 67]], Em: [40, [59, 64, 67]], Dm: [38, [57, 62, 65]]
+    };
+    const prog = ['C','GB','Am','F','C','G','F','G', 'Am','Em','F','C','Dm','G','C','C'];
+    // 선율 [MIDI, 박] — 마디당 4박
+    const mel = [
+      [76,2],[74,1],[72,1], [74,3],[67,1], [72,1.5],[71,.5],[72,1],[76,1], [77,2],[76,1],[72,1],
+      [76,2],[79,2], [79,1.5],[77,.5],[74,2], [72,1],[74,1],[77,1],[81,1], [79,4],
+      [81,2],[79,1],[76,1], [79,2],[76,2], [77,1.5],[76,.5],[72,1],[69,1], [72,1],[76,1],[79,2],
+      [77,2],[81,1],[77,1], [74,2],[71,1],[74,1], [72,4], [R,4]
+    ];
+    const hz = m => 440 * Math.pow(2, (m - 69) / 12);
+    function env(g, t, a, peak, dur) {
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.linearRampToValueAtTime(peak, t + a);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    }
+    function out(node, dry, rev) {
+      const d = ctx.createGain(), w = ctx.createGain(); d.gain.value = dry; w.gain.value = rev;
+      node.connect(d).connect(master); node.connect(w).connect(wet);
+    }
+    function lead(t, m, dur) {
+      const o1 = ctx.createOscillator(), o2 = ctx.createOscillator(), lfo = ctx.createOscillator(), lg = ctx.createGain(), g = ctx.createGain();
+      o1.type = 'sine'; o2.type = 'triangle'; o1.frequency.value = hz(m); o2.frequency.value = hz(m) * 2.001;
+      lfo.frequency.value = 5; lg.gain.value = hz(m) * 0.004; lfo.connect(lg); lg.connect(o1.frequency);
+      const g2 = ctx.createGain(); g2.gain.value = .18;
+      o1.connect(g); o2.connect(g2).connect(g);
+      g.gain.setValueAtTime(0.0001, t); g.gain.linearRampToValueAtTime(.2, t + .09);
+      g.gain.setValueAtTime(.17, t + Math.max(.1, dur * .7)); g.gain.exponentialRampToValueAtTime(0.0001, t + dur + .35);
+      out(g, .8, .55);
+      [o1, o2, lfo].forEach(o => { o.start(t); o.stop(t + dur + .4); });
+    }
+    function pluck(t, m, vol) {
+      const o = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'triangle'; o2.type = 'sine'; o.frequency.value = hz(m); o2.frequency.value = hz(m) * 2;
+      const g2 = ctx.createGain(); g2.gain.value = .25;
+      o.connect(g); o2.connect(g2).connect(g); env(g, t, .005, vol, 1.6);
+      out(g, .7, .5); o.start(t); o2.start(t); o.stop(t + 1.7); o2.stop(t + 1.7);
+    }
+    function bass(t, m, dur) {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine'; o.frequency.value = hz(m); o.connect(g); env(g, t, .02, .28, dur);
+      out(g, .9, .2); o.start(t); o.stop(t + dur + .05);
+    }
+    function pad(t, notes, dur) {
+      const f = ctx.createBiquadFilter(), g = ctx.createGain();
+      f.type = 'lowpass'; f.frequency.value = 900;
+      g.gain.setValueAtTime(0.0001, t); g.gain.linearRampToValueAtTime(.035, t + dur * .4); g.gain.linearRampToValueAtTime(0.0001, t + dur + .3);
+      f.connect(g); out(g, .6, .7);
+      notes.forEach(n => [-6, 6].forEach(dt => {
+        const o = ctx.createOscillator(); o.type = 'sawtooth'; o.frequency.value = hz(n); o.detune.value = dt;
+        o.connect(f); o.start(t); o.stop(t + dur + .4);
+      }));
+    }
+    function scheduleLoop(t0) {
+      prog.forEach((name, bar) => {
+        const [b, tn] = CH[name], tb = t0 + bar * 4 * B;
+        bass(tb, b, 4 * B);
+        pad(tb, tn, 4 * B);
+        const seq = [tn[0], tn[1], tn[2], tn[0] + 12, tn[2], tn[1], tn[2], tn[1]];
+        seq.forEach((n, k) => pluck(tb + k * B / 2, n, k === 0 ? .14 : .1));
+      });
+      let t = t0;
+      // 선율 없이 피아노 반주만
+      return t0 + prog.length * 4 * B;
+    }
+    function loop(t0) {
+      const end = scheduleLoop(t0);
+      loopTimer = setTimeout(() => loop(end), (end - ctx.currentTime - 1) * 1000);
+    }
+    function makeReverb() {
+      const len = ctx.sampleRate * 2.8, buf = ctx.createBuffer(2, len, ctx.sampleRate);
+      for (let c = 0; c < 2; c++) { const d = buf.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.5); }
+      const cv = ctx.createConvolver(); cv.buffer = buf; return cv;
+    }
+    return {
+      get playing() { return playing; },
+      start() {
+        try {
+          if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+          ctx.resume();
+          master = ctx.createGain(); master.gain.setValueAtTime(0.0001, ctx.currentTime); master.gain.linearRampToValueAtTime(.6, ctx.currentTime + 1.5);
+          const comp = ctx.createDynamicsCompressor(); master.connect(comp).connect(ctx.destination);
+          wet = makeReverb(); wet.connect(master);
+          playing = true; loop(ctx.currentTime + .1);
+        } catch (e) { playing = false; }
+      },
+      stop() {
+        playing = false; clearTimeout(loopTimer);
+        if (master) { const m = master; m.gain.setTargetAtTime(0.0001, ctx.currentTime, .3); setTimeout(() => m.disconnect(), 1500); master = null; }
+      }
+    };
+  })();
+  let musicOff = false;
+  function syncMusicBtn() { btn('musicBtn').classList.toggle('on', March.playing); }
+  btn('musicBtn').onclick = () => {
+    if (March.playing) { March.stop(); musicOff = true; } else { March.start(); musicOff = false; }
+    syncMusicBtn();
+  };
+
+  function startAuto(quiet) { stopAuto(); if (!quiet && !musicOff && !March.playing) { March.start(); syncMusicBtn(); } timer = setInterval(tick, +speedSel.value); btn('autoBtn').classList.add('on'); btn('autoBtn').firstChild.textContent = '❚❚ '; }
+  function stopAuto() { if (timer) clearInterval(timer); timer = null; btn('autoBtn').classList.remove('on'); btn('autoBtn').firstChild.textContent = '▶▶ '; }
+  function toggleAuto() { timer ? stopAuto() : startAuto(); }
+  btn('autoBtn').onclick = toggleAuto;
+  // 손가락·마우스로 넘기면 자동넘김 시계를 다시 맞춤 (손으로 넘긴 뒤 3초 쉬고 이어감)
+  function nudgeAuto() { if (timer) { clearInterval(timer); timer = setInterval(tick, +speedSel.value); } }
+  ['pointerdown', 'touchstart', 'pointerup', 'touchend'].forEach(ev => document.querySelector('.stage').addEventListener(ev, nudgeAuto, { passive: true }));
+  pf.on('changeState', e => { if (e.data === 'user_fold' || e.data === 'flipping') nudgeAuto(); });
+  speedSel.onchange = () => { if (timer) startAuto(); };
+  document.addEventListener('visibilitychange', () => { if (document.hidden) { stopAuto(); if (March.playing) { March.stop(); syncMusicBtn(); } } });
+
+  // 현장 스케치로 바로 가기
+  btn('photoBtn').onclick = () => { loadAround(2); pf.turnToPage(2); sync(); };
+
+  // 쪽 안 영상: 쪽을 펼치면 자동 재생, 넘기면 멈춤
+  let cur = null, musicWas = false, gestured = false;
+  ['pointerdown', 'keydown', 'touchstart'].forEach(ev => document.addEventListener(ev, () => { gestured = true; }, true));
+  // 휴대폰(특히 아이폰)은 화면을 누르는 순간에만 소리 있는 재생을 허락하므로,
+  // 첫 터치 때 모든 영상을 미리 '소리 켜짐'으로 풀어 둠 → 이후 영상 쪽이 열리면 소리와 함께 자동 재생
+  let unlocked = false;
+  function unlockVideos() {
+    if (unlocked) return; unlocked = true; gestured = true;
+    Object.values(PV).forEach(t => {
+      if (t === cur) { t.v.muted = false; return; }
+      if (t.v.dataset.src) { t.v.src = t.v.dataset.src; delete t.v.dataset.src; }
+      t.v.muted = false;
+      const pr = t.v.play(); t.v.pause(); if (pr && pr.catch) pr.catch(() => {});
+    });
+    if (cur && cur.v.muted) { cur.v.muted = false; cur.v.play().catch(() => {}); }
+  }
+  ['touchend', 'click', 'keydown'].forEach(ev => document.addEventListener(ev, unlockVideos, { capture: true }));
+  function visibleIdx() {
+    const i = pf.getCurrentPageIndex();
+    if (pf.getOrientation() !== 'landscape' || i === 0) return [i];
+    const L = i % 2 ? i : i - 1; return [L, L + 1];
+  }
+  function showSnd(t) { t.snd.hidden = !t.v.muted; }
+  function startVid(t) {
+    if (cur && cur !== t) stopVid();
+    cur = t;
+    if (t.v.dataset.src) { t.v.src = t.v.dataset.src; delete t.v.dataset.src; }
+    if (March.playing) { musicWas = true; March.stop(); syncMusicBtn(); }
+    t.v.muted = !gestured;
+    try { t.v.currentTime = 0; } catch (e) {}
+    t.v.classList.add('on');
+    const p = t.v.play();
+    if (p && p.catch) p.catch(() => { t.v.muted = true; showSnd(t); t.v.play().catch(() => {}); });
+    showSnd(t);
+  }
+  function stopVid() {
+    if (!cur) return;
+    cur.v.pause(); cur.v.classList.remove('on'); cur.snd.hidden = true;
+    if (cur.v.dataset.parts && cur.pi) { cur.pi = 0; cur.v.src = JSON.parse(cur.v.dataset.parts)[0]; }
+    try { cur.v.currentTime = 0; } catch (e) {}
+    cur = null;
+    if (musicWas && !musicOff) { March.start(); syncMusicBtn(); }
+    musicWas = false;
+  }
+  function updateVideos() {
+    const vis = visibleIdx().filter(i => PV[i]);
+    if (cur && !vis.some(i => PV[i] === cur)) stopVid();
+    if (!cur && vis.length) startVid(PV[vis[0]]);
+  }
+  Object.keys(PV).forEach(k => {
+    const t = PV[k];
+    t.v.addEventListener('ended', () => {
+      // 여러 조각으로 나뉜 영상은 다음 조각을 이어서 재생
+      if (t.v.dataset.parts) {
+        const parts = JSON.parse(t.v.dataset.parts); t.pi = (t.pi || 0) + 1;
+        if (t.pi < parts.length) { t.v.src = parts[t.pi]; t.v.play().catch(() => {}); return; }
+        t.pi = 0; t.v.src = parts[0];
+      }
+      t.v.classList.remove('on');
+      const vis = visibleIdx().filter(i => PV[i]);
+      const nxt = vis.map(i => PV[i]).find(o => o !== t && o.v.currentTime === 0 && !o.played);
+      t.played = true;
+      if (nxt) { cur = null; startVid(nxt); return; }
+      stopVid();
+      if (timer && !t.v.dataset.parts) setTimeout(() => { if (timer) tick(true); }, 800);
+    });
+  });
+  pf.on('flip', () => { Object.values(PV).forEach(o => { o.played = false; }); setTimeout(updateVideos, 50); });
+  pf.on('changeOrientation', () => setTimeout(updateVideos, 50));
+  book.addEventListener('click', e => {
+    const b = e.target.closest && e.target.closest('.vbtn');
+    if (!b) return;
+    e.stopPropagation();
+    if (b.dataset.pv !== undefined) {
+      const t = PV[b.dataset.pv];
+      if (cur !== t) { gestured = true; startVid(t); return; }
+      if (t.v.muted) { t.v.muted = false; showSnd(t); if (t.v.paused) t.v.play().catch(() => {}); return; }
+      if (t.v.paused) t.v.play().catch(() => {}); else t.v.pause();
+    } else { const n = +b.dataset.goto; loadAround(n); pf.turnToPage(n); sync(); }
+  }, true);
+
+  btn('fsBtn').onclick = () => {
+    const el = document.documentElement;
+    try {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else if (el.requestFullscreen) el.requestFullscreen().catch(() => {});
+    } catch (e) {}
+  };
+
+  let saved = 0;
+  try { saved = parseInt(localStorage.getItem('cheonggu-page'), 10) || 0; } catch (e) {}
+  if (saved > 0 && saved < TOTAL) { loadAround(saved); pf.turnToPage(saved); }
+  // 손가락·마우스 넘김: 밀면 넘기고, 빨리 밀수록 빨리 넘어감. 책 좌우를 톡 누르면 앞뒤로 넘김
+  (function () {
+    const stage = document.querySelector('.stage');
+    let sx = 0, sy = 0, st = 0, on = false, onCtl = false;
+    const start = (x, y, target) => { on = true; sx = x; sy = y; st = Date.now(); onCtl = !!(target.closest && target.closest('.vbtn, button, input, select')); };
+    const end = (x, y) => {
+      if (!on) return; on = false;
+      const dx = x - sx, dy = y - sy, dt = Math.max(1, Date.now() - st);
+      const set = pf.getSettings();
+      if (Math.abs(dx) >= 30 && Math.abs(dx) > Math.abs(dy)) {
+        const v = Math.abs(dx) / dt;                       // 밀기 속도(px/ms)
+        set.flippingTime = Math.round(Math.max(220, Math.min(800, 420 / Math.max(v, 0.5))));
+        if (pf.getState() !== 'read') return;
+        dx < 0 ? pf.flipNext() : pf.flipPrev();
+      } else if (!onCtl && Math.abs(dx) < 10 && Math.abs(dy) < 10 && dt < 400) {
+        const r = stage.getBoundingClientRect(), rel = (x - r.left) / r.width;
+        set.flippingTime = 500;
+        if (pf.getState() !== 'read') return;
+        if (rel > 0.6) pf.flipNext(); else if (rel < 0.4) pf.flipPrev();
+      }
+    };
+    stage.addEventListener('touchstart', e => { if (e.touches.length === 1) start(e.touches[0].clientX, e.touches[0].clientY, e.target); else on = false; }, { passive: true });
+    stage.addEventListener('touchend', e => { const t = e.changedTouches[0]; end(t.clientX, t.clientY); }, { passive: true });
+    stage.addEventListener('mousedown', e => start(e.clientX, e.clientY, e.target));
+    stage.addEventListener('mouseup', e => end(e.clientX, e.clientY));
+  })();
+
+  sync();
+  // 열고 3초 뒤 자동넘김 시작 (소리는 화면을 한 번 누른 뒤부터)
+  setTimeout(() => { if (!timer) startAuto(true); }, 3000);
+  document.addEventListener('pointerdown', () => { if (timer && !musicOff && !March.playing) { March.start(); syncMusicBtn(); } }, { once: true, capture: true });
+})();
+</script>
+
+</body>
+</html>
